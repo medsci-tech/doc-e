@@ -1,6 +1,7 @@
 /vendor
 /node_modules
 /public/storage
+/resources/views/vendor/AdminLTE-2.3.0
 Homestead.yaml
 Homestead.json
 .env
