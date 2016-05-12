@@ -2,10 +2,19 @@
 
 namespace App;
 
+use App\Doce\Permission\HasPermission;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * Class User
+ * @package App
+ * @mixin \Eloquent
+ */
 class User extends Authenticatable
 {
+
+    use HasPermission;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -23,4 +32,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
 }
