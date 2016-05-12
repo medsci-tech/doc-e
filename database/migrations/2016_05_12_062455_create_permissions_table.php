@@ -26,6 +26,7 @@ class CreatePermissionsTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('permission_id')->references('id')->on('permissions');
+            $table->timestamps();
         });
     }
 
