@@ -18,11 +18,17 @@ Route::get('/', function () {
 
 //test start
 Route::group(['prefix' => 'test'],function (){
+    Route::get('/', function (){
+        return view('/index');
+    });
     Route::get('/404', function (){
         return view('/errors/404');
     });
     Route::get('/500', function (){
         return view('/errors/500');
+    });
+    Route::get('/503', function (){
+        return view('/errors/503');
     });
 });
 

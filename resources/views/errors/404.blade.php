@@ -2,10 +2,7 @@
 
 @section('title','404 Page not found')
 
-@section('content')
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
+@section('content-header')
       <h1>
         404 Error Page
       </h1>
@@ -13,10 +10,9 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">404 error</li>
       </ol>
-    </section>
+@endsection
 
-    <!-- Main content -->
-    <section class="content">
+@section('content')
       <div class="error-page">
         <h2 class="headline text-yellow"> 404</h2>
 
@@ -41,6 +37,4 @@
           </form>
         </div><!-- /.error-content -->
       </div><!-- /.error-page -->
-    </section><!-- /.content -->
-  </div><!-- /.content-wrapper -->
 @endsection
