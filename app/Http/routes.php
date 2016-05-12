@@ -13,6 +13,9 @@ Route::group(['prefix' => 'test'],function (){
     Route::get('/', function (){
         return view('layouts.app');
     });
+    Route::get('/news', function (){
+        return view('backend.news');
+    });
     Route::get('/404', function (){
         return view('errors.404');
     });
