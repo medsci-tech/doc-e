@@ -1,47 +1,43 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Be right back.</title>
+@extends('/master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('title','503 Be right back')
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('content')
+  <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            503 Be right back
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">503 error</li>
+        </ol>
+    </section>
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+    <!-- Main content -->
+    <section class="content">
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 72px;
-                margin-bottom: 40px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Be right back.</div>
+        <div class="error-page">
+            <h2 class="headline text-blue">503</h2>
+            <div class="error-content">
+                <h3><i class="fa fa-warning text-blue"></i> Oops! Be right back.</h3>
+                <p>
+                    We will be right back.
+                    Meanwhile, you may <a href="../../index.html">return to dashboard</a> or try using the search form.
+                </p>
+                <form class="search-form">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button type="submit" name="submit" class="btn btn-danger btn-flat"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div><!-- /.input-group -->
+                </form>
             </div>
-        </div>
-    </body>
-</html>
+        </div><!-- /.error-page -->
+
+    </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+@endsection
