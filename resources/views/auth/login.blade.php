@@ -3,6 +3,8 @@
 @section('title','登录')
 
 @section('content')
+
+  @if (Auth::guest())
   <div class="login-box">
 
     @if (count($errors) > 0)
@@ -15,6 +17,8 @@
         </ul>
       </div>
     @endif
+
+
 
     <div class="login-logo">
       <a href="#">迈德医学信息库</a>
@@ -49,4 +53,15 @@
 
     </div><!-- /.login-box-body -->
   </div><!-- /.login-box -->
+
+  @else
+
+    <div class="alert alert-info">
+      <strong>您已登录</strong> 请不要重复登录！<br><br>
+      <ul>
+
+      </ul>
+    </div>
+
+  @endif
 @endsection

@@ -11,7 +11,7 @@ Route::get('/home', 'HomeController@index');
 //test start
 Route::group(['prefix' => 'test'],function (){
     Route::get('/', function (){
-        return view('layouts.app');
+        return view('backend.news');
     });
     Route::get('/news', function (){
         return view('backend.news');
