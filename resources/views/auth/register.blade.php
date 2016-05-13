@@ -5,12 +5,12 @@
 @section('content')
     <div class="register-box">
         <div class="register-logo">
-            <a href="../../index2.html">迈德医学信息库</a>
+            <a href="{{url('/home')}}">迈德医学信息库</a>
         </div>
 
         <div class="register-box-body">
             <p class="login-box-msg">注册新用户</p>
-            <form action="../../index.html" method="post">
+            <form action="{{url('/register')}}" method="post">
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" placeholder="请输入姓名">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -43,7 +43,7 @@
 
             <br>
 
-            <a href="login.html" class="text-center">我已经注册过，点击登录</a>
+            <a href="{{url('/login')}}" class="text-center">我已经注册过，点击登录</a>
         </div><!-- /.form-box -->
     </div><!-- /.register-box -->
 @endsection

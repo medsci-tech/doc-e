@@ -20,19 +20,10 @@
   <link rel="stylesheet" href="{{asset('vendor')}}/dist/css/skins/_all-skins.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="{{asset('vendor')}}/plugins/iCheck/square/blue.css">
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="{{asset('vendor')}}/plugins/morris/morris.css">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="{{asset('vendor')}}/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-  <!-- Date Picker -->
-  <link rel="stylesheet" href="{{asset('vendor')}}/plugins/datepicker/datepicker3.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="{{asset('vendor')}}/plugins/daterangepicker/daterangepicker-bs3.css">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="{{asset('vendor')}}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
   <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
 
+  @yield('css')
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -80,7 +71,7 @@
       }
     });
   </script>
-
+  @yield('js')
   </body>
 @else
   <body class="hold-transition skin-blue sidebar-mini fixed">
@@ -90,7 +81,7 @@
       <!-- Logo -->
       <a href="{{url('/')}}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini">医学信息库</span>
+        <span class="logo-mini">迈德</span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg">医学信息库</span>
       </a>
@@ -149,18 +140,6 @@
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
         </div>
-        {{--<!-- search form -->--}}
-        {{--<form action="#" method="get" class="sidebar-form">--}}
-          {{--<div class="input-group">--}}
-            {{--<input type="text" name="q" class="form-control" placeholder="Search...">--}}
-              {{--<span class="input-group-btn">--}}
-                {{--<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>--}}
-                {{--</button>--}}
-              {{--</span>--}}
-          {{--</div>--}}
-        {{--</form>--}}
-        {{--<!-- /.search form -->--}}
-        <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
           <li class="header">资源管理</li>
           <li class="active treeview">
@@ -207,11 +186,8 @@
   <script src="{{asset('vendor')}}/bootstrap/js/bootstrap.min.js"></script>
   <!-- SlimScroll -->
   <script src="{{asset('vendor')}}/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-  <!-- FastClick -->
-  <script src="{{asset('vendor')}}/plugins/fastclick/fastclick.min.js"></script>
   <!-- AdminLTE App -->
   <script src="{{asset('vendor')}}/dist/js/app.min.js"></script>
-  <!-- iCheck -->
   <!-- csrf-token -->
   <script>
     $.ajaxSetup({
@@ -220,7 +196,7 @@
       }
     });
   </script>
-
+  @yield('js')
   </body>
 @endif
 </html>
