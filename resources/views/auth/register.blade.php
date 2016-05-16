@@ -49,14 +49,14 @@
                     @endif
                 </div>
                 <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox"> 我同意 <a href="#">注册协议</a>
-                            </label>
-                        </div>
-                    </div><!-- /.col -->
-                    <div class="col-xs-4">
+                    {{--<div class="col-xs-8">--}}
+                        {{--<div class="checkbox icheck">--}}
+                            {{--<label>--}}
+                                {{--<input type="checkbox"> 我同意 <a href="#">注册协议</a>--}}
+                            {{--</label>--}}
+                        {{--</div>--}}
+                    {{--</div><!-- /.col -->--}}
+                    <div class="col-xs-12">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">注&emsp;册</button>
                     </div><!-- /.col -->
                 </div>
