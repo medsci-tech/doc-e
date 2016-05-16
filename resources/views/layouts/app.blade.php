@@ -38,7 +38,7 @@
   <![endif]-->
 </head>
 
-@if (Auth::guest())
+@if (false)
   <body class="hold-transition login-page">
 
   <section class="content-header">
@@ -149,7 +149,7 @@
         <ul class="sidebar-menu">
           <li class="header">资源管理</li>
           <li class="active treeview">
-            <a href="{{url('/test/news')}}">
+            <a href="{{url('/test/medical_record')}}">
               <i class="fa fa-dashboard"></i> <span>新闻信息表</span>
             </a>
           </li>

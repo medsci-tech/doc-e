@@ -11,12 +11,17 @@ Route::get('/home', 'HomeController@index');
 //test start
 Route::group(['prefix' => 'test'],function (){
     Route::get('/', function (){
-        return view('backend.news') ->with([
+        return view('medical_record.index') ->with([
 
         ]);
     });
-    Route::get('/news', function (){
-        return view('backend.news');
+    Route::group(['prefix' => 'medical_record'],function (){
+        Route::get('/', function (){
+            return view('medical_record.index');
+        });
+        Route::get('/create', function (){
+            return view('medical_record.create');
+        });
     });
     Route::get('/404', function (){
         return view('errors.404');
