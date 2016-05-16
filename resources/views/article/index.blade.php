@@ -4,11 +4,15 @@
 
 @section('css')
   <link rel="stylesheet" href="{{asset('vendor')}}/plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="{{asset('vendor')}}/plugins/umeditor/themes/default/css/umeditor.css">
 @endsection
 
 @section('js')
   <script src="{{asset('vendor')}}/plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="{{asset('vendor')}}/plugins/datatables/dataTables.bootstrap.min.js"></script>
+  <script src="{{asset('vendor')}}/plugins/umeditor/umeditor.config.js"></script>
+  <script src="{{asset('vendor')}}/plugins/umeditor/umeditor.min.js"></script>
+  <script type="{{asset('vendor')}}/plugins/umeditor/lang/zh-cn/zh-cn.js"></script>
   <script>
     $(function () {
       $("#example1").DataTable({
@@ -30,30 +34,42 @@
       $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').focus()
       });
-    });
-  </script>
 
-  <script>
+      var create = UM.getEditor('create', {
+        initialFrameWidth: '100%',
+        autoHeightEnabled: false,
+        scaleEnabled: true
+      });
+      var edit = UM.getEditor('edit');
+    });
+
+
     $(function () {
       $('#example1_filter').prepend(
         "<div class='inline'>" +
-        "<button class='btn btn-flat btn-success' data-toggle='modal' data-target='#modal-create'>添加</button>" + "&nbsp;"+
-        "<button class='btn btn-flat btn-warning' disabled data-toggle='modal' data-target='#modal-edit'>编辑</button>" + "&nbsp;"+
-        "<button class='btn btn-flat btn-danger' disabled>删除</button>" + "&nbsp;"+
+        "<a href='{{ url('test/article/create') }}' class='btn btn-flat btn-success'>添加</a>" + "&nbsp;" +
+        "<button class='btn btn-flat btn-warning' disabled>编辑</button>" + "&nbsp;" +
+        "<button class='btn btn-flat btn-danger' disabled>删除</button>" + "&nbsp;" +
         "</div>"
       );
-    })
+    });
+  </script>
+
+  <script src="{{asset('vendor')}}/plugins/vuejs/vue.js"></script>
+  <script>
+    new Vue({});
   </script>
 
 @endsection
 
 @section('content-header')
   <h1>
-    新闻信息表
+    文章列表
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i>主页</a></li>
-    <li class="active">新闻信息表</li>
+    <li>新闻信息表</li>
+    <li class="active">文章列表</li>
   </ol>
 @endsection
 
@@ -184,6 +200,4 @@
   </div>
 
   <!-- Modal -->
-  @include('medical_record.create')
-  @include('medical_record.edit')
 @endsection

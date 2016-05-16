@@ -149,9 +149,15 @@
         <ul class="sidebar-menu">
           <li class="header">资源管理</li>
           <li class="active treeview">
-            <a href="{{url('/test/medical_record')}}">
-              <i class="fa fa-dashboard"></i> <span>新闻信息表</span>
+            <a href="{{url('/test/article')}}">
+              <i class="fa fa-dashboard"></i>
+              <span>新闻信息表</span>
+              <i class="fa fa-angle-left pull-right"></i>
             </a>
+            <ul class="treeview-menu menu-open" style="display: block;">
+              <li><a href="{{ url('/test/article') }}"><i class="fa fa-circle-o"></i>文章列表</a></li>
+              <li><a href="{{ url('/test/article/create') }}"><i class="fa fa-circle-o"></i>添加文章</a></li>
+            </ul>
           </li>
         </ul>
       </section>
