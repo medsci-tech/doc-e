@@ -34,16 +34,12 @@
   </script>
 
   <script>
-
-  </script>
-
-  <script>
     $(function () {
       $('#example1_filter').prepend(
         "<div class='inline'>" +
-        "<button class='btn btn-flat btn-success'>添加</button>" + "&nbsp;"+
-        "<button class='btn btn-flat btn-warning disabled'>编辑</button>" + "&nbsp;"+
-        "<button class='btn btn-flat btn-danger disabled'>删除</button>" + "&nbsp;"+
+        "<button class='btn btn-flat btn-success' data-toggle='modal' data-target='#modal-create'>添加</button>" + "&nbsp;"+
+        "<button class='btn btn-flat btn-warning' disabled data-toggle='modal' data-target='#modal-edit'>编辑</button>" + "&nbsp;"+
+        "<button class='btn btn-flat btn-danger' disabled>删除</button>" + "&nbsp;"+
         "</div>"
       );
     })
@@ -187,27 +183,7 @@
     </div><!-- /.col -->
   </div>
 
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Launch demo modal
-  </button>
-
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  @include('medical_record.create')
+  @include('medical_record.edit')
 @endsection

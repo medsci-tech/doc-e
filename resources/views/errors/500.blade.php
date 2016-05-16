@@ -7,7 +7,7 @@
     500 Error Page
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i>主页</a></li>
+    <li><a href="{{url('/home')}}"><i class="fa fa-dashboard"></i>主页</a></li>
     <li class="active">500 error</li>
   </ol>
 @endsection
