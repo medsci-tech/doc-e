@@ -52,4 +52,6 @@ $app->singleton(
 |
 */
 
+$app->register(Overtrue\LaravelLang\TranslationServiceProvider::class);//新增本地化注册
+
 return $app;
