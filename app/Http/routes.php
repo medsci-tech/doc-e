@@ -11,7 +11,9 @@ Route::get('/home', 'HomeController@index');
 //test start
 Route::group(['prefix' => 'test'],function (){
     Route::get('/', function (){
-        return view('backend.news');
+        return view('backend.news') ->with([
+
+        ]);
     });
     Route::get('/news', function (){
         return view('backend.news');

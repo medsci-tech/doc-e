@@ -23,6 +23,12 @@
 
   <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
 
+  <style>
+    body {
+      font-family: "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    }
+  </style>
+
   @yield('css')
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -117,7 +123,7 @@
                     <a href="#" class="btn btn-default btn-flat">个人信息</a>
                   </div>
                   <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat">登&emsp;出</a>
+                    <a href="{{url('/logout')}}" class="btn btn-default btn-flat">登&emsp;出</a>
                   </div>
                 </li>
               </ul>
