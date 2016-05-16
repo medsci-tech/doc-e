@@ -14,15 +14,14 @@
         <p class="login-box-msg">请登录</p>
         <form action="{{url('/login')}}" method="post" role="form">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-          <div class="form-group has-feedback {{ $errors->has('email')? 'has-error' : '' }}">
-            <input type="email" name="email" class="form-control" placeholder="请输入邮箱" value="{{ old('email') }}">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            @if ($errors->has('email'))
+          <div class="form-group has-feedback {{ $errors->has('username')? 'has-error' : '' }}">
+            <input type="text" required name="username" class="form-control" placeholder="请输入用户名" value="{{ old('username') }}">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            @if ($errors->has('username'))
               <span class="help-block">
-                <strong>{{ $errors->first('email') }}</strong>
+                <strong>{{ $errors->first('username') }}</strong>
               </span>
             @endif
-
           </div>
           <div class="form-group has-feedback {{ $errors->has('password')? 'has-error' : '' }}">
             <input type="password" name="password" class="form-control" placeholder="请输入密码">
@@ -47,7 +46,7 @@
           </div>
         </form>
         <br>
-        <a href="{{url('/password/reset')}}">忘记密码？</a><br>
+{{--        <a href="{{url('/password/reset')}}">忘记密码？</a><br>--}}
         <a href="{{url('/register')}}" class="text-center">注册新用户</a>
 
       </div><!-- /.login-box-body -->
@@ -64,3 +63,5 @@
 
   @endif
 @endsection
+
+
