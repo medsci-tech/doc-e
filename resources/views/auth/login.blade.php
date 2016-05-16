@@ -13,6 +13,7 @@
       <div class="login-box-body">
         <p class="login-box-msg">请登录</p>
         <form action="{{url('/login')}}" method="post" role="form">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group has-feedback {{ $errors->has('email')? 'has-error' : '' }}">
             <input type="email" name="email" class="form-control" placeholder="请输入邮箱" value="{{ old('email') }}">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
