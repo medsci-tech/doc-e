@@ -18,9 +18,8 @@
         autoHeightEnabled: false,
         scaleEnabled: true
 
-        ,imageUrl: "http://upload.qiniu.com"            //图片上传提交地址
-        ,imagePath:"http://domain/"                            //图片修正地址，引用了fixedImagePath,如有特殊需求，可自行配置
-
+        ,imageUrl: "http://upload.qiniu.com/"            //图片上传提交地址
+        ,imagePath:"http://o7bemieu9.bkt.clouddn.com/"   //图片修正地址，引用了fixedImagePath,如有特殊需求，可自行配置
 
       });
     });

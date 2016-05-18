@@ -8026,10 +8026,15 @@ UM.plugins['autoupload'] = function () {
     var sendAndInsertImage = function (file, editor) {
         //模拟数据
         var fd = new FormData();
-        fd.append('type', 'ajax');
-        fd.append('token', 'iN7NgwM31j4-BZacMjPrOQBs34UG1maYCAQmhdCV:324d7cGRSjdR7JBjCGKj5boTOaI=:eyJzY29wZSI6InF0ZXN0YnVja2V0IiwiZGVhZGxpbmUiOjE0NjM1NDE4NjB9');
-        fd.append('file', file.name);
-        fd.append('fileBinaryData', file);
+        $.ajax({
+            type : "get",
+            url : "http://localhost/upload/upload-token",
+            async : false,//取消异步
+            success : function(data){
+                fd.append('token', data);
+            }
+        });
+        fd.append('file', file);
         var xhr = new XMLHttpRequest();
         xhr.open("post", me.options.imageUrl, true);
         xhr.addEventListener('load', function (e) {

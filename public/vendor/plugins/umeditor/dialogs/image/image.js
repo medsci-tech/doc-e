@@ -138,13 +138,16 @@
      * */
     var Upload = {
         showCount: 0,
+
         uploadTpl: '<div class="edui-image-upload%%">' +
             '<span class="edui-image-icon"></span>' +
             '<form class="edui-image-form" method="post" enctype="multipart/form-data" target="up">' +
-            '<input style=\"filter: alpha(opacity=0);\" class="edui-image-file" type="file" hidefocus name="upfile" accept="image/gif,image/jpeg,image/png,image/jpg,image/bmp"/>' +
+            '<input style=\"filter: alpha(opacity=0);\" class="edui-image-file" type="file" hidefocus name="file" accept="image/gif,image/jpeg,image/png,image/jpg,image/bmp"/>' +
+            '<input id="token" name="token" class="hide" value="">' +
             '</form>' +
 
             '</div>',
+
         init: function (editor, $w) {
             var me = this;
 
@@ -196,10 +199,19 @@
         submit: function (callback) {
 
             var me = this,
-                input = $( '<input style="filter: alpha(opacity=0);" class="edui-image-file" type="file" hidefocus="" name="upfile" accept="image/gif,image/jpeg,image/png,image/jpg,image/bmp">'),
+                input = $( '<input style="filter: alpha(opacity=0);" class="edui-image-file" type="file" hidefocus="" name="file" accept="image/gif,image/jpeg,image/png,image/jpg,image/bmp">'),
                 input = input[0];
 
             $(me.dialog).delegate( ".edui-image-file", "change", function ( e ) {
+
+                $.ajax({
+                    type : "get",
+                    url : "http://localhost/upload/upload-token",
+                    async : false,//取消异步
+                    success : function(data){
+                        $('#token').val(data);
+                    }
+                });
 
                 if ( !this.parentNode ) {
                     return;
@@ -267,6 +279,9 @@
                             //模拟数据
                             var fd = new FormData();
                             fd.append(me.editor.getOpt('imageFieldName'), f);
+
+                            fd.append('token', 'iN7NgwM31j4-BZacMjPrOQBs34UG1maYCAQmhdCV:324d7cGRSjdR7JBjCGKj5boTOaI=:eyJzY29wZSI6InF0ZXN0YnVja2V0IiwiZGVhZGxpbmUiOjE0NjM1NDE4NjB9');
+
 
                             xhr.send(fd);
                             xhr.addEventListener('load', function (e) {
