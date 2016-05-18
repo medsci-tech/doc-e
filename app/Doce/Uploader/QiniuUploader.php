@@ -29,9 +29,23 @@ class QiniuUploader
         return $this->bucket;
     }
 
-
     public function getUploadToken()
     {
-        return $this->getAuth()->uploadToken($this->getBucket());
+        $key = $this->getUploadTokenKeyInCache();
+        $uploadToken = \Cache::get($key);
+        if (!$uploadToken) {
+            $uploadToken = $this->getAuth()->uploadToken($this->getBucket());
+            \Cache::put($key, $uploadToken, 60);
+        }
+
+        return $uploadToken;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getUploadTokenKeyInCache()
+    {
+        return 'QINIU_UPLOAD_TOKEN';
     }
 }
