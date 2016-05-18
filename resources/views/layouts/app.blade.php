@@ -38,7 +38,7 @@
   <![endif]-->
 </head>
 
-@if (false)
+@if (Auth::guest())
   <body class="hold-transition login-page">
 
   <section class="content-header">
