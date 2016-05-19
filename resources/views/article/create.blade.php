@@ -4,12 +4,24 @@
 
 @section('css')
   <link rel="stylesheet" href="{{asset('vendor')}}/plugins/umeditor/themes/default/css/umeditor.css">
+  <link rel="stylesheet" href="{{asset('vendor')}}/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css">
+  <style>
+    .bootstrap-tagsinput {
+      display: block;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .label {
+      border-radius: 0;
+    }
+  </style>
 @endsection
 
 @section('js')
   <script src="{{asset('vendor')}}/plugins/umeditor/umeditor.config.js"></script>
   <script src="{{asset('vendor')}}/plugins/umeditor/umeditor.js"></script>
-  <script type="{{asset('vendor')}}/plugins/umeditor/lang/zh-cn/zh-cn.js"></script>
+  <script src="{{asset('vendor')}}/plugins/umeditor/lang/zh-cn/zh-cn.js"></script>
+  <script src="{{asset('vendor')}}/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
   <script>
     $(function () {
       var create = UM.getEditor('create', {
@@ -114,16 +126,16 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group" hidden>
+              <div class="form-group">
                 <label for="keyword" class="col-sm-2 control-label">关键词</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="keyword" placeholder="关键词">
+                  <input data-role="tagsinput" type="text" class="form-control" name="keyword" placeholder="请输入关键词">
                 </div>
               </div>
-              <div class="form-group" hidden>
+              <div class="form-group">
                 <label for="tag" class="col-sm-2 control-label">标签</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="tag" placeholder="标签">
+                  <input data-role="tagsinput" type="text" class="form-control" name="tag" placeholder="请输入标签">
                 </div>
               </div>
             </div>
