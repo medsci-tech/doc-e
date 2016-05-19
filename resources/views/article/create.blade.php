@@ -17,16 +17,44 @@
         autoHeightEnabled: false,
         scaleEnabled: true
 
-        ,imageUrl: "http://upload.qiniu.com/"            //图片上传提交地址
-        ,imagePath:"http://o7bemieu9.bkt.clouddn.com/"   //图片修正地址，引用了fixedImagePath,如有特殊需求，可自行配置
+        , imageUrl: "http://upload.qiniu.com/"
+        , imagePath: "http://o7bemieu9.bkt.clouddn.com/"
 
       });
     });
   </script>
 
-  <script src="{{asset('vendor')}}/plugins/vuejs/vue.js"></script>
+  {{--<script src="{{asset('vendor')}}/plugins/vuejs/vue.js"></script>--}}
   <script>
-    new Vue({});
+    $('#upload_thumb').click(function () {
+      $('#thumbnail_file').click();
+    });
+    $('#thumbnail_file').change(function () {
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("post", 'http://upload.qiniu.com/' + "?type=ajax", true);
+      xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+      var fd = new FormData();
+      $.ajax({
+        type: "get",
+        url: "http://localhost/upload/upload-token",
+        async: false,
+        success: function (data) {
+          fd.append('token', data);
+          fd.append('file', $('#thumbnail_file').get(0).files[0]);
+        },
+        error: function () {
+          alert('服务器异常！');
+        }
+      });
+      xhr.send(fd);
+      xhr.addEventListener('load', function (e) {
+        var json = eval('(' + e.target.response + ')');
+        var url = 'http://o7bemieu9.bkt.clouddn.com/' + json.key;
+        $('#thumbnail').attr('src', url);
+        $('#thumbnail_url').val(url);
+      });
+    })
   </script>
 
 @endsection
@@ -53,15 +81,49 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="box-body">
               <div class="form-group">
-                <label for="article_title" class="col-sm-2 control-label">新闻标题</label>
+                <label for="title" class="col-sm-2 control-label">新闻标题</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="article_title" placeholder="输入标题">
+                  <input required type="text" class="form-control" name="title" placeholder="输入标题">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="abstract" class="col-sm-2 control-label">新闻简介</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="abstract" placeholder="输入简介">
                 </div>
               </div>
               <div class="form-group">
                 <label for="content" class="col-sm-2 control-label">新闻内容</label>
                 <div class="col-sm-10">
                   <script id="create" name="content" type="text/plain"></script>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="thumbnail_url" class="col-sm-2 control-label">缩略图</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-btn">
+                      <button type="button" id="upload_thumb" class="btn btn-flat"><i class="fa fa-cloud-upload"></i>&nbsp;点击上传图片
+                      </button>
+                    </span>
+                    <input type="url" class="form-control" readonly id="thumbnail_url" name="thumbnail_url"
+                           placeholder="图片地址">
+                  </div>
+                  <div>
+                    <img class="img-responsive" id="thumbnail">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" hidden>
+                <label for="keyword" class="col-sm-2 control-label">关键词</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="keyword" placeholder="关键词">
+                </div>
+              </div>
+              <div class="form-group" hidden>
+                <label for="tag" class="col-sm-2 control-label">标签</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="tag" placeholder="标签">
                 </div>
               </div>
             </div>
@@ -71,6 +133,9 @@
             </div>
           </form>
 
+          <div hidden>
+            <input type="file" id="thumbnail_file">
+          </div>
         </div><!-- /.box-body -->
       </div><!-- /.box -->
     </div><!-- /.col -->
