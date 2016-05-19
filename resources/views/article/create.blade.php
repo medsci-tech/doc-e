@@ -4,11 +4,6 @@
 
 @section('css')
   <link rel="stylesheet" href="{{asset('vendor')}}/plugins/umeditor/themes/default/css/umeditor.css">
-  <style>
-    .edui-scale {
-      box-sizing: content-box;
-    }
-  </style>
 @endsection
 
 @section('js')
