@@ -16,6 +16,18 @@ Route::group([
     Route::get('upload-token', 'UploadController@uploadToken');
 });
 
+Route::group([
+    'prefix' => 'article',
+    'middleware' => 'web',
+    'namespace' => 'Article'
+], function () {
+    Route::get('create', 'ArticleController@create');
+    Route::post('', 'ArticleController@store');
+});
+
+
+
+
 
 //test start
 Route::group(['prefix' => 'test'], function () {
