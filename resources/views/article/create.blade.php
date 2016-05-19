@@ -4,6 +4,11 @@
 
 @section('css')
   <link rel="stylesheet" href="{{asset('vendor')}}/plugins/umeditor/themes/default/css/umeditor.css">
+  <style>
+    .edui-scale {
+      box-sizing: content-box;
+    }
+  </style>
 @endsection
 
 @section('js')
@@ -12,7 +17,6 @@
   <script type="{{asset('vendor')}}/plugins/umeditor/lang/zh-cn/zh-cn.js"></script>
   <script>
     $(function () {
-
       var create = UM.getEditor('create', {
         initialFrameWidth: '100%',
         autoHeightEnabled: false,
