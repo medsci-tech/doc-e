@@ -13,7 +13,7 @@
     }
     .label {
       border-radius: 0;
-      line-height: 2;
+      line-height: 2.3;
     }
   </style>
 @endsection
