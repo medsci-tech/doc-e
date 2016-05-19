@@ -223,6 +223,9 @@
           success: function (data) {
             formdata.append("token", data);
             formdata.append("file", $('#upload_file').get(0).files[0]);
+          },
+          error: function () {
+            alert('服务器异常！');
           }
         });
 
@@ -289,6 +292,9 @@
                 async: false,//取消异步
                 success: function (data) {
                   fd.append('token', data);
+                },
+                error: function () {
+                  alert('服务器异常！');
                 }
               });
               fd.append('file', f);
