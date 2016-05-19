@@ -8026,15 +8026,21 @@ UM.plugins['autoupload'] = function () {
     var sendAndInsertImage = function (file, editor) {
         //模拟数据
         var fd = new FormData();
-        fd.append(editor.options.imageFieldName || 'upfile', file, file.name || ('blob.' + file.type.substr('image/'.length)));
-        fd.append('type', 'ajax');
+        $.ajax({
+            type : "get",
+            url : "http://localhost/upload/upload-token",
+            async : false,//取消异步
+            success : function(data){
+                fd.append('token', data);
+            }
+        });
+        fd.append('file', file);
         var xhr = new XMLHttpRequest();
         xhr.open("post", me.options.imageUrl, true);
-        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         xhr.addEventListener('load', function (e) {
             try {
                 var json = eval('('+e.target.response+')'),
-                    link = json.url,
+                    link = json.key,
                     picLink = me.options.imagePath + link;
                 editor.execCommand('insertimage', {
                     src: picLink,

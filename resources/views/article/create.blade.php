@@ -8,7 +8,7 @@
 
 @section('js')
   <script src="{{asset('vendor')}}/plugins/umeditor/umeditor.config.js"></script>
-  <script src="{{asset('vendor')}}/plugins/umeditor/umeditor.min.js"></script>
+  <script src="{{asset('vendor')}}/plugins/umeditor/umeditor.js"></script>
   <script type="{{asset('vendor')}}/plugins/umeditor/lang/zh-cn/zh-cn.js"></script>
   <script>
     $(function () {
@@ -16,6 +16,10 @@
         initialFrameWidth: '100%',
         autoHeightEnabled: false,
         scaleEnabled: true
+
+        ,imageUrl: "http://upload.qiniu.com/"            //图片上传提交地址
+        ,imagePath:"http://o7bemieu9.bkt.clouddn.com/"   //图片修正地址，引用了fixedImagePath,如有特殊需求，可自行配置
+
       });
     });
   </script>
