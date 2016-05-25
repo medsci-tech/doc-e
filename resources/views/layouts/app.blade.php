@@ -31,6 +31,10 @@
     .edui-scale {
       box-sizing: content-box;
     }
+
+    .sidebar-menu li>a>.pull-right {
+      transition-duration: 500ms;
+    }
   </style>
 
   @yield('css')
