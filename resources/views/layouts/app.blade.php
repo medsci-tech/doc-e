@@ -109,24 +109,12 @@
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="{{url('vendor')}}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                <span class="hidden-xs">Alexander Pierce</span>
+                <span class="hidden-xs">已登录</span>
               </a>
-              <ul class="dropdown-menu">
-                <!-- User image -->
-                <li class="user-header">
-                  <img src="{{url('vendor')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                  <p>
-                    Alexander Pierce - Web Developer
-                    <small>Member since Nov. 2012</small>
-                  </p>
-                </li>
+              <ul class="dropdown-menu" style="width: 100px">
                 <!-- Menu Footer-->
                 <li class="user-footer">
-                  <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">个人信息</a>
-                  </div>
-                  <div class="pull-right">
+                  <div class="text-center">
                     <a href="{{url('/logout')}}" class="btn btn-default btn-flat">登&emsp;出</a>
                   </div>
                 </li>
@@ -141,15 +129,15 @@
       <!-- sidebar: style can be found in sidebar.less -->
       <section class="sidebar">
         <!-- Sidebar user panel -->
-        <div class="user-panel">
-          <div class="pull-left image">
-            <img src="{{url('vendor')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-          </div>
-          <div class="pull-left info">
-            <p>Alexander Pierce</p>
-            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-          </div>
-        </div>
+        {{--<div class="user-panel">--}}
+          {{--<div class="pull-left image">--}}
+            {{--<img src="{{url('vendor')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}}
+          {{--</div>--}}
+          {{--<div class="pull-left info">--}}
+            {{--<p>Alexander Pierce</p>--}}
+            {{--<a href="#"><i class="fa fa-circle text-success"></i> Online</a>--}}
+          {{--</div>--}}
+        {{--</div>--}}
         <ul class="sidebar-menu">
           <li class="header">资源管理</li>
           <li class="active treeview">
@@ -159,7 +147,7 @@
               <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu menu-open" style="display: block;">
-              <li><a href="{{ url('/test/article') }}"><i class="fa fa-circle-o"></i>文章列表</a></li>
+              {{--<li><a href="{{ url('/test/article') }}"><i class="fa fa-circle-o"></i>文章列表</a></li>--}}
               <li><a href="{{ url('/test/article/create') }}"><i class="fa fa-circle-o"></i>添加文章</a></li>
             </ul>
           </li>

@@ -32,12 +32,11 @@ class QiniuUploader
     public function getUploadToken()
     {
         $key = $this->getUploadTokenKeyInCache();
-        $uploadToken = $this->getAuth()->uploadToken($this->getBucket());
-//        $uploadToken = \Cache::get($key);
-//        if (!$uploadToken) {
-//            $uploadToken = $this->getAuth()->uploadToken($this->getBucket());
-//            \Cache::put($key, $uploadToken, 60);
-//        }
+        $uploadToken = \Cache::get($key);
+        if (!$uploadToken) {
+            $uploadToken = $this->getAuth()->uploadToken($this->getBucket());
+            \Cache::put($key, $uploadToken, 60);
+        }
 
         return $uploadToken;
     }
