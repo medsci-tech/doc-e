@@ -11,7 +11,7 @@
   <script src="{{asset('vendor')}}/plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="{{asset('vendor')}}/plugins/datatables/dataTables.bootstrap.min.js"></script>
   <script src="{{asset('vendor')}}/plugins/umeditor/umeditor.config.js"></script>
-  <script src="{{asset('vendor')}}/plugins/umeditor/umeditor.min.js"></script>
+  <script src="{{asset('vendor')}}/plugins/umeditor/umeditor.js"></script>
   <script type="{{asset('vendor')}}/plugins/umeditor/lang/zh-cn/zh-cn.js"></script>
   <script>
     $(function () {
