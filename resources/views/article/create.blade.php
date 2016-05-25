@@ -1,6 +1,6 @@
 @extends('/layouts/app')
 
-@section('title','新闻信息表')
+@section('title','添加文章')
 
 @section('css')
   <link rel="stylesheet" href="{{asset('vendor')}}/plugins/umeditor/themes/default/css/umeditor.css">
