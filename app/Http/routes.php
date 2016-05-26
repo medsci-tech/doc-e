@@ -1,13 +1,16 @@
 <?php
 
-Route::get('/', function () {
-    return redirect('home');
+//基本路由组
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/', function () {
+        return redirect('home');
+    });
+
+    Route::get('/home', 'HomeController@index');
+    Route::auth();
 });
 
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
-
+//上传图片路由组, upload
 Route::group([
     'prefix' => 'upload',
     'middleware' => 'web',
@@ -16,6 +19,8 @@ Route::group([
     Route::get('upload-token', 'UploadController@uploadToken');
 });
 
+
+//文章路由组, article
 Route::group([
     'prefix' => 'article',
     'middleware' => 'web',
@@ -25,11 +30,7 @@ Route::group([
     Route::post('', 'ArticleController@store');
 });
 
-
-
-
-
-//test start
+//测试路由组, 正式部署时删除, test
 Route::group(['prefix' => 'test'], function () {
     Route::get('/', function () {
         return view('article.index')->with([
