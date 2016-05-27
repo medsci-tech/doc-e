@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
@@ -29,7 +30,7 @@ class AuthController extends Controller
             return $user;
         }
 
-        return response('Login failed.', 401);
+        return response('Login failed.', Response::HTTP_UNAUTHORIZED);
     }
 
     public function users(User $user)
