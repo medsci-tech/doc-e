@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Doce\Article\CreatesArticle;
 use App\Doce\Auth\HasAPIToken;
 use App\Doce\Permission\HasPermission;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -18,6 +19,7 @@ class User extends Authenticatable
     use HasPermission;
     use HasAPIToken;
     use SoftDeletes;
+    use CreatesArticle;
 
     /**
      * The attributes that are mass assignable.
