@@ -23,7 +23,7 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         return Article::createUsingFormData($request->only([
-            'title', 'abstract', 'thumbnail_url', 'category', 'keywords', 'tags', 'content'
+            'title', 'abstract', 'thumbnail_url', 'category_id', 'keywords', 'tags', 'content'
         ]));
     }
 }

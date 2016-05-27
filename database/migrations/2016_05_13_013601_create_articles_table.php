@@ -18,8 +18,13 @@ class CreateArticlesTable extends Migration
             $table->text('abstract');
             $table->text('content');
             $table->string('thumbnail_url');
+
             $table->unsignedInteger('creator_id')->nullable();
             $table->foreign('creator_id')->references('id')->on('users');
+
+            $table->unsignedInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories');
+
             $table->timestamps();
             $table->softDeletes();
         });
@@ -34,6 +39,7 @@ class CreateArticlesTable extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             $table->dropForeign('articles_creator_id_foreign');
+            $table->dropForeign('articles_category_id_foreign');
         });
 
         Schema::drop('articles');

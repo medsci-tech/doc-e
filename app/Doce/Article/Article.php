@@ -2,6 +2,7 @@
 
 namespace App\Doce\Article;
 
+use App\App\Doce\Article\Category;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -71,6 +72,14 @@ class Article extends Model
         return $this->belongsTo(User::class, 'creator_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
 
     /**
      * @param array $credentials
@@ -78,7 +87,7 @@ class Article extends Model
      */
     public static function createUsingFormData(array $credentials)
     {
-        $plain_data = collect($credentials)->only(['title', 'abstract', 'thumbnail_url', 'content'])->toArray();
+        $plain_data = collect($credentials)->only(['title', 'abstract', 'thumbnail_url', 'content', 'category_id'])->toArray();
         $keywords = $credentials['keywords'];
         $tags = $credentials['tags'];
 
