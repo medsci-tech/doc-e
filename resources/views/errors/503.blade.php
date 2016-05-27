@@ -19,11 +19,11 @@
       <h3><i class="fa fa-warning text-aqua"></i> Oops! Be right back.</h3>
       <p>
         We will be right back.
-        Meanwhile, you may <a href="../../index.html">return to dashboard</a> or try using the search form.
+        Meanwhile, you may <a href="{{url('/')}}">return to dashboard</a> or try using the search form.
       </p>
       <form class="search-form">
         <div class="input-group">
-          <input type="text" name="search" class="form-control" placeholder="Search">
+          <input type="text" disabled name="search" class="form-control" placeholder="Search">
           <div class="input-group-btn">
             <button type="submit" name="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
           </div>
