@@ -1,5 +1,7 @@
 <?php
 
+Route::auth();
+
 //基本路由组
 Route::group(['middleware' => 'web'], function () {
     Route::get('/', function () {
@@ -7,7 +9,6 @@ Route::group(['middleware' => 'web'], function () {
     });
 
     Route::get('/home', 'HomeController@index');
-    Route::auth();
 });
 
 //上传图片路由组, upload
@@ -28,6 +29,15 @@ Route::group([
 ], function () {
     Route::get('create', 'ArticleController@create');
     Route::post('', 'ArticleController@store');
+});
+
+Route::group([
+    'prefix' => 'api/v1',
+    'namespace' => 'Api'
+], function () {
+    Route::get('users/{user}', 'AuthController@users');
+
+    Route::get('token', 'AuthController@token');
 });
 
 //测试路由组, 正式部署时删除, test

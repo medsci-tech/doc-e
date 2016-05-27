@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Doce\Auth\HasAPIToken;
 use App\Doce\Permission\HasPermission;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -14,6 +15,7 @@ class User extends Authenticatable
 {
 
     use HasPermission;
+    use HasAPIToken;
 
     /**
      * The attributes that are mass assignable.
@@ -21,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'username', 'email', 'password', 'api_token'
     ];
 
     /**
@@ -30,8 +32,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token'
     ];
-
 
 }
