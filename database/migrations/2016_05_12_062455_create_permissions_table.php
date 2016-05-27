@@ -17,6 +17,7 @@ class CreatePermissionsTable extends Migration
             $table->string('name');
             $table->string('label');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('permission_user', function (Blueprint $table) {
@@ -27,6 +28,7 @@ class CreatePermissionsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('permission_id')->references('id')->on('permissions');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

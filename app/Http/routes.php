@@ -40,31 +40,4 @@ Route::group([
     Route::get('token', 'AuthController@token');
 });
 
-//测试路由组, 正式部署时删除, test
-Route::group(['prefix' => 'test'], function () {
-    Route::get('/', function () {
-        return view('article.index')->with([
-
-        ]);
-    });
-
-    Route::group(['prefix' => 'article'], function () {
-        Route::get('/', function () {
-            return view('article.index');
-        });
-        Route::get('/create', function () {
-            return view('article.create');
-        });
-    });
-    Route::get('/404', function () {
-        return view('errors.404');
-    });
-    Route::get('/500', function () {
-        return view('errors.500');
-    });
-    Route::get('/503', function () {
-        return view('errors.503');
-    });
-});
-
 //test end

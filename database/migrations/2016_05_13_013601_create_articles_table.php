@@ -19,9 +19,9 @@ class CreateArticlesTable extends Migration
             $table->text('content');
             $table->string('thumbnail_url');
             $table->unsignedInteger('creator_id')->nullable();
-            $table->timestamps();
-
             $table->foreign('creator_id')->references('id')->on('users');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
