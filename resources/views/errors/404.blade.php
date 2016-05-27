@@ -22,12 +22,12 @@
           <p>
             We could not find the page you were looking for.
             Meanwhile, you may <a
-              href="{{asset('vendor')}}/index.html">return to dashboard</a> or try using the search form.
+              href="{{url('/')}}">return to dashboard</a> or try using the search form.
           </p>
 
           <form class="search-form">
             <div class="input-group">
-              <input type="text" name="search" class="form-control" placeholder="Search">
+              <input type="text" disabled name="search" class="form-control" placeholder="Search">
 
               <div class="input-group-btn">
                 <button type="submit" name="submit" class="btn btn-warning btn-flat"><i class="fa fa-search"></i>

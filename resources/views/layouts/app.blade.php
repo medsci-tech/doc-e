@@ -93,7 +93,7 @@
 
     <header class="main-header">
       <!-- Logo -->
-      <a href="{{url('/')}}" class="logo">
+      <a href="{{url('/')}}" class="logo hidden-xs">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini">迈德</span>
         <!-- logo for regular state and mobile devices -->
@@ -113,7 +113,7 @@
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="hidden-xs">已登录</span>
+                <span>已登录</span>
               </a>
               <ul class="dropdown-menu" style="width: 100px">
                 <!-- Menu Footer-->
@@ -145,14 +145,14 @@
         <ul class="sidebar-menu">
           <li class="header">资源管理</li>
           <li class="active treeview">
-            <a href="{{url('/test/article')}}">
+            <a href="{{url('/article')}}">
               <i class="fa fa-dashboard"></i>
               <span>新闻信息表</span>
               <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu menu-open" style="display: block;">
-              {{--<li><a href="{{ url('/test/article') }}"><i class="fa fa-circle-o"></i>文章列表</a></li>--}}
-              <li><a href="{{ url('/test/article/create') }}"><i class="fa fa-circle-o"></i>添加文章</a></li>
+              {{--<li><a href="{{ url('/article') }}"><i class="fa fa-circle-o"></i>文章列表</a></li>--}}
+              <li><a href="{{ url('/article/create') }}"><i class="fa fa-circle-o"></i>添加文章</a></li>
             </ul>
           </li>
         </ul>
