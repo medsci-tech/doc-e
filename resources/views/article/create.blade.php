@@ -77,7 +77,7 @@
     添加文章
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i>主页</a></li>
+    <li><a href="{{url('/')}}"><i class="fa fa-dashboard"></i>主页</a></li>
     <li>新闻信息表</li>
     <li class="active">添加文章</li>
   </ol>
