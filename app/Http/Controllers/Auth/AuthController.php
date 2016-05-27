@@ -75,6 +75,11 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
     protected function authenticated(Request $request, User $user)
     {
         if ($this->needsUpdateAPIToken()) {
@@ -84,6 +89,9 @@ class AuthController extends Controller
         return redirect()->intended($this->redirectPath());
     }
 
+    /**
+     * @return bool
+     */
     protected function needsUpdateAPIToken()
     {
         return $this->getGuard() == "api";
