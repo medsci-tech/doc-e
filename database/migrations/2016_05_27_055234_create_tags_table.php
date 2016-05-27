@@ -20,8 +20,8 @@ class CreateTagsTable extends Migration
 
             $table->string('name');
 
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

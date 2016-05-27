@@ -218,7 +218,7 @@
 
         $.ajax({
           type: "get",
-          url: "http://localhost/upload/upload-token",
+          url: "/upload/upload-token",
           async: false,//取消异步
           success: function (data) {
             formdata.append("token", data);

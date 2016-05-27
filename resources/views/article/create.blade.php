@@ -24,6 +24,8 @@
   <script src="{{asset('vendor')}}/plugins/umeditor/lang/zh-cn/zh-cn.js"></script>
   <script src="{{asset('vendor')}}/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
   <script>
+    var qiniu_image_domain = "{{env('QINIU_IMAGE_DOMAIN')}}/";
+
     $(function () {
       var create = UM.getEditor('create', {
         initialFrameWidth: '100%',
@@ -31,7 +33,7 @@
         scaleEnabled: true
 
         , imageUrl: "http://upload.qiniu.com/"
-        , imagePath: "http://o7bemieu9.bkt.clouddn.com/"
+        , imagePath: qiniu_image_domain
 
       });
     });
@@ -50,7 +52,7 @@
       var fd = new FormData();
       $.ajax({
         type: "get",
-        url: "http://localhost/upload/upload-token",
+        url: "{{url('/upload/upload-token')}}",
         async: false,
         success: function (data) {
           fd.append('token', data);
@@ -63,7 +65,7 @@
       xhr.send(fd);
       xhr.addEventListener('load', function (e) {
         var json = eval('(' + e.target.response + ')');
-        var url = 'http://o7bemieu9.bkt.clouddn.com/' + json.key;
+        var url = qiniu_image_domain + json.key;
         $('#thumbnail').attr('src', url);
         $('#thumbnail_url').val(url);
       });
@@ -90,7 +92,7 @@
         <div class="box-header">
         </div><!-- /.box-header -->
         <div class="box-body">
-          <form class="form-horizontal" action="{{ url('/login') }}" method="post" role="form">
+          <form class="form-horizontal" action="" method="post" role="form">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="box-body">
               <div class="form-group">
@@ -128,13 +130,13 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="keyword" class="col-sm-2 control-label">关键词</label>
+                <label for="keywords" class="col-sm-2 control-label">关键词</label>
                 <div class="col-sm-10">
                   <input data-role="tagsinput" type="text" class="form-control" name="keyword" placeholder="请输入关键词">
                 </div>
               </div>
               <div class="form-group">
-                <label for="tag" class="col-sm-2 control-label">标签</label>
+                <label for="tags" class="col-sm-2 control-label">标签</label>
                 <div class="col-sm-10">
                   <input data-role="tagsinput" type="text" class="form-control" name="tag" placeholder="请输入标签">
                 </div>

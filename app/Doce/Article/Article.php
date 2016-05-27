@@ -38,14 +38,15 @@ class Article extends Model
     }
 
     /**
-     * @param $plain_data
-     * @param $keywords
-     * @param $tags
-     * @return Article|null|mixed
+     * @param array $plain_data
+     * @param array $keywords
+     * @param array $tags
+     * @param User $user
+     * @return Article|mixed|null
      */
-    public static function createUsingCredentials($plain_data, $keywords, $tags)
+    public static function createUsingCredentials($plain_data, $keywords, $tags, $user = null)
     {
-        return \DB::transaction(function () use ($plain_data, $keywords, $tags) {
+        return \DB::transaction(function () use ($plain_data, $keywords, $tags, $user) {
             $article = self::create($plain_data);
 
             foreach ($keywords as $keyword_name) {
@@ -60,6 +61,8 @@ class Article extends Model
                 $article->tags()->save($tag);
             }
 
+            $user = $user ? $user : \Auth::user();
+            $article->update(['creator_id' => $user->id]);
             return $article;
         });
     }
@@ -88,8 +91,8 @@ class Article extends Model
     public static function createUsingFormData(array $credentials)
     {
         $plain_data = collect($credentials)->only(['title', 'abstract', 'thumbnail_url', 'content', 'category_id'])->toArray();
-        $keywords = $credentials['keywords'];
-        $tags = $credentials['tags'];
+        $keywords = explode(',', $credentials['keywords']);
+        $tags = explode(',', $credentials['tags']);
 
         $article = self::createUsingCredentials($plain_data, $keywords, $tags);
 
