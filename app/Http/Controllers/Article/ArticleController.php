@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Article;
 
 use App\Doce\Article\Article;
+use App\Http\Requests\CreateArticleForm;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -20,10 +21,12 @@ class ArticleController extends Controller
         return view('article.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateArticleForm $form)
     {
-        return Article::createUsingFormData($request->only([
-            'title', 'abstract', 'thumbnail_url', 'category_id', 'keywords', 'tags', 'content'
-        ]));
+        $form->persist();
+
+        return redirect()->back()->with([
+            'success' => true
+        ]);
     }
 }

@@ -23,12 +23,10 @@ Route::group([
 
 //文章路由组, article
 Route::group([
-    'prefix' => 'article',
     'middleware' => 'web',
     'namespace' => 'Article'
 ], function () {
-    Route::get('create', 'ArticleController@create');
-    Route::post('', 'ArticleController@store');
+    Route::resource('article', 'ArticleController');
 });
 
 Route::group([
