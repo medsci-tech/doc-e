@@ -11,6 +11,7 @@
       border-radius: 0;
       box-shadow: none;
     }
+
     .label {
       border-radius: 0;
       line-height: 2.3;
@@ -30,10 +31,19 @@
         autoHeightEnabled: false,
         scaleEnabled: true
 
+        , initialFrameHeight: 300
         , imageUrl: "http://upload.qiniu.com/"
         , imagePath: "http://o7bemieu9.bkt.clouddn.com/"
 
       });
+
+      $('form').submit(function (e) {
+        if (!create.hasContents()) {
+          alert("请输入文本内容");
+          e.preventDefault();
+          create.focus();
+        }
+      })
     });
   </script>
 
@@ -90,25 +100,36 @@
         <div class="box-header">
         </div><!-- /.box-header -->
         <div class="box-body">
-          <form class="form-horizontal" action="{{ url('/login') }}" method="post" role="form">
+          <form class="form-horizontal" action="{{ url('/article') }}" method="post" role="form">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="box-body">
               <div class="form-group">
-                <label for="title" class="col-sm-2 control-label">新闻标题</label>
+                <label for="title" class="col-sm-2 control-label">文章标题</label>
                 <div class="col-sm-10">
                   <input required type="text" class="form-control" name="title" placeholder="输入标题">
                 </div>
               </div>
               <div class="form-group">
-                <label for="abstract" class="col-sm-2 control-label">新闻简介</label>
+                <label for="type_id" class="col-sm-2 control-label">文章分类</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="abstract" placeholder="输入简介">
+                  <select required type="text" class="form-control" name="type_id">
+                    <option value="" disabled selected>请选择文章类型</option>
+                    {{--@foreach( $articletype as $type_id => $type_name)--}}
+                      {{--<option value="{{ $type_id }}">{{ $type_name }}</option>--}}
+                    {{--@endforeach--}}
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="abstract" class="col-sm-2 control-label">文章简介</label>
+                <div class="col-sm-10">
+                  <input required type="text" class="form-control" name="abstract" placeholder="输入简介">
                 </div>
               </div>
               <div class="form-group">
                 <label for="content" class="col-sm-2 control-label">新闻内容</label>
                 <div class="col-sm-10">
-                  <script id="create" name="content" type="text/plain"></script>
+                  <script required id="create" name="content" type="text/plain"></script>
                 </div>
               </div>
               <div class="form-group">
@@ -119,7 +140,7 @@
                       <button type="button" id="upload_thumb" class="btn btn-flat"><i class="fa fa-cloud-upload"></i>&nbsp;点击上传图片
                       </button>
                     </span>
-                    <input type="url" class="form-control" readonly id="thumbnail_url" name="thumbnail_url"
+                    <input required type="url" class="form-control" readonly id="thumbnail_url" name="thumbnail_url"
                            placeholder="图片地址">
                   </div>
                   <div>
