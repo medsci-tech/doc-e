@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Doce\Article\Article;
 use App\Http\Requests\Request;
+use Gate;
 
 class CreateArticleForm extends Request
 {
@@ -14,7 +15,8 @@ class CreateArticleForm extends Request
      */
     public function authorize()
     {
-        return true;
+//        return true;
+        return Gate::allows('store');
     }
 
     /**

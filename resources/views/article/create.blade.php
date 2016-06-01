@@ -92,7 +92,7 @@
         <div class="box-header">
         </div><!-- /.box-header -->
         <div class="box-body">
-          <form class="form-horizontal" action="" method="post" role="form">
+          <form class="form-horizontal" action="/article" method="post" role="form">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="box-body">
               <div class="form-group">
