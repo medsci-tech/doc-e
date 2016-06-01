@@ -114,7 +114,7 @@
               <div class="form-group">
                 <label for="type_id" class="col-sm-2 control-label">文章分类</label>
                 <div class="col-sm-10">
-                  <select required type="text" class="form-control" name="type_id">
+                  <select  type="text" class="form-control" name="type_id">
                     <option value="" disabled selected>请选择文章类型</option>
                     {{--@foreach( $articletype as $type_id => $type_name)--}}
                       {{--<option value="{{ $type_id }}">{{ $type_name }}</option>--}}
@@ -142,7 +142,7 @@
                       <button type="button" id="upload_thumb" class="btn btn-flat"><i class="fa fa-cloud-upload"></i>&nbsp;点击上传图片
                       </button>
                     </span>
-                    <input required type="url" class="form-control" readonly id="thumbnail_url" name="thumbnail_url"
+                    <input  type="url" class="form-control" readonly id="thumbnail_url" name="thumbnail_url"
                            placeholder="图片地址">
                   </div>
                   <div>
