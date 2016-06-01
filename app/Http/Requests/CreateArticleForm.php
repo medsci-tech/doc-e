@@ -15,8 +15,7 @@ class CreateArticleForm extends Request
      */
     public function authorize()
     {
-//        return true;
-        return Gate::allows('store');
+        return Gate::allows('store', Article::class);
     }
 
     /**
@@ -29,12 +28,17 @@ class CreateArticleForm extends Request
         return [
             'title' => 'required',
             'abstract' => 'required',
-//            'thumbnail_url' => 'required',
-//            'category_id' => 'required',
+            'thumbnail_url' => 'required',
+            'category_id' => 'required',
             'content' => 'required'
         ];
     }
 
+    /**
+     * 使用表单数据创建article
+     *
+     * @return Article|mixed|null
+     */
     public function persist()
     {
         return Article::createUsingFormData($this->only('title', 'abstract', 'thumbnail_url', 'category_id', 'keywords', 'tags', 'content'));
