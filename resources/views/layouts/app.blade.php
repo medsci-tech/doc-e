@@ -115,7 +115,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <span>已登录</span>
               </a>
-              <ul class="dropdown-menu" style="width: 100px">
+              <ul class="dropdown-menu" style="width: 100px;right: 0%">
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="text-center">
