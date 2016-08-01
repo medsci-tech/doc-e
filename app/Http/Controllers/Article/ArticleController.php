@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Article;
 
+use App\App\Doce\Article\Category;
 use App\Doce\Article\Article;
 use App\Http\Requests\CreateArticleForm;
 use Illuminate\Http\Request;
@@ -30,7 +31,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('article.create');
+        return view('article.create')->with([
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -43,8 +46,8 @@ class ArticleController extends Controller
     {
         $form->persist();
 
-        return redirect()->back()->with([
-            'success' => true
-        ]);
+//        return redirect()->back()->with([
+//            'success' => true
+//        ]);
     }
 }

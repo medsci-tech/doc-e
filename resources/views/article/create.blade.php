@@ -93,6 +93,7 @@
     <li>新闻信息表</li>
     <li class="active">添加文章</li>
   </ol>
+
 @endsection
 
 @section('content')
@@ -114,11 +115,11 @@
               <div class="form-group">
                 <label for="type_id" class="col-sm-2 control-label">文章分类</label>
                 <div class="col-sm-10">
-                  <select required type="text" class="form-control" name="type_id">
+                  <select required type="text" class="form-control" name="category_id">
                     <option value="" disabled selected>请选择文章类型</option>
-                    {{--@foreach( $articletype as $type_id => $type_name)--}}
-                      {{--<option value="{{ $type_id }}">{{ $type_name }}</option>--}}
-                    {{--@endforeach--}}
+                    @foreach($categories as $category)
+                      <option value="{{ $category->id}}">{{ $category->name }}</option>
+                    @endforeach
                   </select>
                 </div>
               </div>
@@ -153,13 +154,13 @@
               <div class="form-group">
                 <label for="keywords" class="col-sm-2 control-label">关键词</label>
                 <div class="col-sm-10">
-                  <input data-role="tagsinput" type="text" class="form-control" name="keyword" placeholder="请输入关键词">
+                  <input data-role="tagsinput" type="text" class="form-control" name="keywords" placeholder="请输入关键词">
                 </div>
               </div>
               <div class="form-group">
                 <label for="tags" class="col-sm-2 control-label">标签</label>
                 <div class="col-sm-10">
-                  <input data-role="tagsinput" type="text" class="form-control" name="tag" placeholder="请输入标签">
+                  <input data-role="tagsinput" type="text" class="form-control" name="tags" placeholder="请输入标签">
                 </div>
               </div>
             </div>
