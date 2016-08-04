@@ -15,7 +15,8 @@ class CreateArticleForm extends Request
      */
     public function authorize()
     {
-        return Gate::allows('store', Article::class);
+//        return Gate::allows('store', Article::class);
+        return true;
     }
 
     /**
