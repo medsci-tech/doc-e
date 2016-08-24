@@ -90,7 +90,7 @@
   </h1>
   <ol class="breadcrumb">
     <li><a href="{{url('/')}}"><i class="fa fa-dashboard"></i>主页</a></li>
-    <li>新闻信息表</li>
+    <li>文章管理</li>
     <li class="active">添加文章</li>
   </ol>
 

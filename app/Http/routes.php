@@ -47,6 +47,9 @@ Route::group(['prefix' => 'web'],function(){
     Route::get('/list', function(){
         return view('web.list');
     });
+    Route::get('/article', function(){
+        return view('web.article');
+    });
 });
 
 //test end

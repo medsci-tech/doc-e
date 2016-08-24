@@ -147,7 +147,7 @@
           <li class="active treeview">
             <a href="{{url('/article')}}">
               <i class="fa fa-dashboard"></i>
-              <span>新闻信息表</span>
+              <span>文章管理</span>
               <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu menu-open" style="display: block;">
