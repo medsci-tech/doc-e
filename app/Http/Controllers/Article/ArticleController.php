@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Article;
 
-use App\App\Doce\Article\Category;
+use App\Doce\Article\Category;
 use App\Doce\Article\Article;
 use App\Http\Requests\CreateArticleForm;
 use Illuminate\Http\Request;
