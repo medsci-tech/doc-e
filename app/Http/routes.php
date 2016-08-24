@@ -38,4 +38,15 @@ Route::group([
     Route::get('token', 'AuthController@token');
 });
 
+
+//test
+Route::group(['prefix' => 'web'],function(){
+    Route::get('/', function(){
+        return view('web.index');
+    });
+    Route::get('/list', function(){
+        return view('web.list');
+    });
+});
+
 //test end

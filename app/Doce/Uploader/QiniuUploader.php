@@ -76,7 +76,7 @@ class QiniuUploader
      * @return string
      */
     protected function getUploadTokenKeyInCache()
-    {
+    {   
         return 'QINIU_UPLOAD_TOKEN';
     }
 }
