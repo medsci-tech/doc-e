@@ -1,6 +1,6 @@
 <?php
 
-namespace App\App\Doce\Article;
+namespace App\Doce\Article;
 
 use App\Doce\Article\Article;
 use Illuminate\Database\Eloquent\Model;
