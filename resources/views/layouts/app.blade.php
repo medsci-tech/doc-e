@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>医学信息库 | @yield('title')</title>
+  <title>健康监护教育一体机 | @yield('title')</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -179,7 +179,7 @@
 
     <footer class="main-footer">
       <div class="pull-right hidden-xs">
-        <b>Version</b> 0.0.1
+        <b>Version</b> 0.1.0
       </div>
       <strong>Copyright &copy; 2011-2016 <a href="#">迈德同信（武汉）科技股份有限公司</a>.</strong> All rights
       reserved.
